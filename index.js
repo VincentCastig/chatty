@@ -8,18 +8,16 @@ app.use(bodyParser.json())
 
 const messages = []
 
+
 app.get('/messages', function(req, res, next) {
   res.status(200).json({messages:messages});
 });
 
 app.post('/messages', function(req, res, next) {
   console.log(req.body)
-  messages.push({ message:req.body.message, time: new Date() });
+  messages.push({ username:req.body.username, message:req.body.message, time: new Date() });
   res.status(200).json({ messages:messages})
 });
-
-
-
 
 
 
